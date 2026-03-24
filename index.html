@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lexion</title>
+  <title>LEXION</title>
   <meta
     name="description"
-    content="Lexion tarafından geliştirilen mobil oyunlar ve dijital projeler. Yakında daha fazlası burada."
+    content="LEXION tarafından geliştirilen mobil oyunlar ve dijital projeler. Sözcük Avı ve yeni projeler burada."
   />
   <style>
     :root {
@@ -67,12 +67,14 @@
       font-size: 22px;
       font-weight: 700;
       box-shadow: 0 12px 30px rgba(56, 189, 248, 0.3);
+      text-transform: uppercase;
     }
 
     .brand-name {
       font-size: 22px;
       font-weight: 700;
       letter-spacing: 0.2px;
+      text-transform: uppercase;
     }
 
     .hero {
@@ -96,6 +98,7 @@
       font-size: clamp(40px, 7vw, 72px);
       line-height: 1.04;
       letter-spacing: -1.5px;
+      text-transform: uppercase;
     }
 
     .hero p {
@@ -125,6 +128,7 @@
       font-weight: 700;
       transition: 0.2s ease;
       border: 1px solid transparent;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -228,6 +232,62 @@
       line-height: 1.7;
     }
 
+    .game-section {
+      margin-top: 24px;
+      padding: 28px;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .game-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .game-box h3 {
+      margin: 0 0 14px;
+      font-size: 28px;
+    }
+
+    .game-box p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .store-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .store-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      color: white;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .store-link.primary {
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
+      color: #061120;
+      border: none;
+    }
+
     .ad-section {
       margin-top: 24px;
       padding: 24px;
@@ -280,13 +340,73 @@
       gap: 14px;
     }
 
-    .footer a {
+    .footer a,
+    .footer button {
       color: #d9e7ff;
       text-decoration: none;
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
     }
 
-    .footer a:hover {
+    .footer a:hover,
+    .footer button:hover {
       color: white;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 999;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal {
+      width: min(760px, 100%);
+      max-height: 85vh;
+      overflow-y: auto;
+      background: #0f1b33;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
+    }
+
+    .modal h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .modal p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
     }
 
     @media (max-width: 900px) {
@@ -294,7 +414,8 @@
         grid-column: span 12;
       }
 
-      .highlight {
+      .highlight,
+      .game-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -312,8 +433,13 @@
         width: 100%;
       }
 
-      .hero-actions {
+      .hero-actions,
+      .store-buttons {
         flex-direction: column;
+      }
+
+      .store-link {
+        width: 100%;
       }
     }
   </style>
@@ -323,23 +449,23 @@
     <header class="topbar">
       <a href="#" class="brand">
         <div class="brand-mark">L</div>
-        <div class="brand-name">Lexion</div>
+        <div class="brand-name">LEXION</div>
       </a>
     </header>
 
     <main>
       <section class="hero">
         <div class="hero-badge">Mobil oyunlar ve dijital projeler.</div>
-        <h1>Lexion.</h1>
+        <h1>LEXION.</h1>
         <p>
-          Lexion, sade, kullanışlı ve keyifli dijital deneyimler geliştirmeyi hedefleyen
+          LEXION, sade, kullanışlı ve keyifli dijital deneyimler geliştirmeyi hedefleyen
           bir proje markasıdır. Yakında burada oyunlarımız, yeniliklerimiz ve resmi
           duyurularımız yer alacak.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#about">Projeyi İncele</a>
-          <a class="btn btn-secondary" href="mailto:numancakir6@gmail.com">İletişime Geç</a>
+          <a class="btn btn-primary" href="#sozcuk-avi">Projeyi İncele</a>
+          <a class="btn btn-secondary" href="mailto:lexiondestek@gmail.com">İletişime Geç</a>
         </div>
       </section>
 
@@ -366,7 +492,7 @@
           <div class="feature-icon">🔒</div>
           <h3>Resmî Kanal</h3>
           <p>
-            Bu alan adı, Lexion ile ilgili resmî içeriklerin ve bağlantıların paylaşılacağı
+            Bu alan adı, LEXION ile ilgili resmî içeriklerin ve bağlantıların paylaşılacağı
             ana merkez olarak kullanılacaktır.
           </p>
         </div>
@@ -385,8 +511,38 @@
           <strong>Güncel durum.</strong>
           <span>
             Alan adı aktif, sayfa yayında ve altyapı hazırlanıyor. Bir sonraki aşamada
-            gizlilik politikası ve mağaza bağlantıları eklenecek.
+            daha fazla proje içeriği ve mağaza bağlantıları eklenecek.
           </span>
+        </div>
+      </section>
+
+      <section class="card game-section" id="sozcuk-avi">
+        <div class="game-grid">
+          <div class="game-box">
+            <h3>Sözcük Avı.</h3>
+            <p>
+              Sözcük Avı, Türkçe kelime bilginizi sınayan ve eğlenceli bir deneyim sunan
+              mobil kelime oyunudur. Oyunda farklı uzunluklarda kelimeler, ipuçları,
+              yıldız sistemi ve çeşitli oyun içi mekanikler yer almaktadır.
+            </p>
+            <p>
+              Yeni güncellemeler ve mağaza bağlantıları bu bölüm üzerinden takip edilebilir.
+            </p>
+          </div>
+
+          <div class="game-box">
+            <h3>İndirme Bağlantıları.</h3>
+            <p>
+              Uygulama bağlantılarınızı aşağıya ekleyebilirsin. Şimdilik biri hazır değilse
+              yerine geçici bağlantı bırakabiliriz.
+            </p>
+
+            <div class="store-buttons">
+              <a class="store-link primary" href="https://play.google.com/store/apps/details?id=com.cakir.wordgames.sozcukavi" target="_blank">Google Play</a>
+              <a class="store-link" href="https://apps.apple.com/tr/app/sözcük-avı-kelime-oyunu/id6759480760?l=tr" target="_blank">App Store</a>
+              <a class="store-link" href="mailto:lexiondestek@gmail.com">Destek</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -403,13 +559,65 @@
 
     <footer class="footer">
       <div class="footer-wrap">
-        <div>© 2026 Lexion. Tüm hakları saklıdır.</div>
+        <div>© 2026 LEXION. Tüm hakları saklıdır.</div>
         <div class="footer-links">
-          <a href="mailto:numancakir6@gmail.com">İletişim</a>
-          <a href="privacy.html">Gizlilik Politikası</a>
+          <a href="mailto:lexiondestek@gmail.com">İletişim</a>
+          <button type="button" onclick="openPrivacy()">Gizlilik Politikası</button>
         </div>
       </div>
     </footer>
   </div>
+
+  <div class="modal-backdrop" id="privacyModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closePrivacy()">×</button>
+      <h2>LEXION Gizlilik Politikası</h2>
+
+      <p>
+        LEXION tarafından geliştirilen uygulamalar, kullanıcı deneyimini geliştirmek amacıyla
+        anonim analiz verileri toplayabilir.
+      </p>
+
+      <p>
+        Toplanan veriler kişisel kimlik bilgisi içermez ve yalnızca uygulama performansını
+        iyileştirmek için kullanılır.
+      </p>
+
+      <p>
+        Uygulama içerisinde kullanıcı tarafından sağlanan veriler üçüncü kişilerle paylaşılmaz.
+      </p>
+
+      <p>
+        Bazı durumlarda reklam hizmetleri, kullanıcılara daha uygun içerikler sunabilmek için
+        anonim veriler kullanabilir.
+      </p>
+
+      <p>
+        Herhangi bir sorunuz için bizimle iletişime geçebilirsiniz:
+        <br>
+        <a href="mailto:lexiondestek@gmail.com">lexiondestek@gmail.com</a>
+      </p>
+
+      <p style="margin-top:28px; font-size:14px; color:#94a3b8;">
+        Son güncelleme: 2026
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function openPrivacy() {
+      document.getElementById('privacyModal').classList.add('active');
+    }
+
+    function closePrivacy() {
+      document.getElementById('privacyModal').classList.remove('active');
+    }
+
+    document.getElementById('privacyModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closePrivacy();
+      }
+    });
+  </script>
 </body>
 </html>
